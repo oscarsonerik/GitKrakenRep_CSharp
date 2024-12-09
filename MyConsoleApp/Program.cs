@@ -1,46 +1,28 @@
-﻿using System; // Importerar System-namespace som innehåller grundläggande funktioner som Console.
+﻿using System;
 
-class Person // Definierar en klass som heter "Person". Detta är en mall för att skapa personobjekt.
+class Program
 {
-    // Fält/egenskaper för klassen
-    public string Name { get; set; } // En offentlig egenskap för att lagra personens namn (med getter och setter).
-    public int Age { get; set; }     // En offentlig egenskap för att lagra personens ålder (med getter och setter).
-
-    // Statisk variabel för att spåra antal skapade objekt
-    private static int personCount = 0;
-    public static int PersonCount
+    static void Main(string[] args)
     {
-        get { return personCount; }
-    }
+        // Skapa en adress
+        Address address1 = new Address("Gatan 5", "Stockholm", "111 22", "Sverige");
 
-    // Konstruktor för att skapa nya Person-objekt med namn och ålder
-    public Person(string name, int age) 
-    {
-        Name = name; // Tilldelar värdet av "name" till egenskapen Name.
-        Age = age;   // Tilldelar värdet av "age" till egenskapen Age.
-        personCount++; // Ökar räknaren för varje nytt objekt
-    }
+        // Skapa en person och koppla till adressen
+        Person person1 = new Person("Alice", 25, address1);
 
-    // En metod som beskriver personen
-    public void Introduce()
-    {
-        // Skriver ut en hälsning som innehåller personens namn och ålder.
-        Console.WriteLine($"Hej, jag heter {Name} och jag är {Age} år gammal.");
-    }
-}
+        // Använd metoder för att visa information om personen och deras adress
+        person1.Introduce(); // Introducera personen
+        person1.DisplayAddress(); // Visa adressen
 
-class Program // Definierar huvudklassen där programmet startar.
-{
-    static void Main(string[] args) // Huvudmetoden, startpunkten för programmet.
-    {
-        Person person1 = new Person("Alice", 25);
-        person1.Introduce();
-        Person person2 = new Person("Bob", 30);
-        person2.Introduce();
+        // Skapa en annan person med en annan adress
+        Address address2 = new Address("Main Street 12", "Göteborg", "411 15", "Sverige");
+        Person person2 = new Person("Bob", 30, address2);
         
-        Console.WriteLine($"Totalt antal personer skapade: {Person.PersonCount}");
+        // Använd metoder för att visa information om den andra personen
+        person2.Introduce();
+        person2.DisplayAddress();
 
-        // Väntar på att användaren trycker på en tangent innan programmet avslutas.
+        // Vänta på att användaren trycker på en tangent innan programmet avslutas
         Console.WriteLine("Tryck på en valfri tangent för att avsluta...");
         Console.ReadKey();
     }
