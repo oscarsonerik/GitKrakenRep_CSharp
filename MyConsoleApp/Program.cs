@@ -6,11 +6,19 @@ class Person // Definierar en klass som heter "Person". Detta är en mall för a
     public string Name { get; set; } // En offentlig egenskap för att lagra personens namn (med getter och setter).
     public int Age { get; set; }     // En offentlig egenskap för att lagra personens ålder (med getter och setter).
 
+    // Statisk variabel för att spåra antal skapade objekt
+    private static int personCount = 0;
+    public static int PersonCount
+    {
+        get { return personCount; }
+    }
+
     // Konstruktor för att skapa nya Person-objekt med namn och ålder
     public Person(string name, int age) 
     {
         Name = name; // Tilldelar värdet av "name" till egenskapen Name.
         Age = age;   // Tilldelar värdet av "age" till egenskapen Age.
+        personCount++; // Ökar räknaren för varje nytt objekt
     }
 
     // En metod som beskriver personen
@@ -29,6 +37,8 @@ class Program // Definierar huvudklassen där programmet startar.
         person1.Introduce();
         Person person2 = new Person("Bob", 30);
         person2.Introduce();
+        
+        Console.WriteLine($"Totalt antal personer skapade: {Person.PersonCount}");
 
         // Väntar på att användaren trycker på en tangent innan programmet avslutas.
         Console.WriteLine("Tryck på en valfri tangent för att avsluta...");
