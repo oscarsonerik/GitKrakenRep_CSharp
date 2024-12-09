@@ -25,16 +25,9 @@ class Program // Definierar huvudklassen där programmet startar.
 {
     static void Main(string[] args) // Huvudmetoden, startpunkten för programmet.
     {
-        // Skapar ett nytt Person-objekt med namnet "Alice" och åldern 25.
         Person person1 = new Person("Alice", 25);
-
-        // Anropar Introduce-metoden för att skriva ut information om personen.
         person1.Introduce();
-
-        // Skapar ett annat Person-objekt med namnet "Bob" och åldern 30.
         Person person2 = new Person("Bob", 30);
-
-        // Anropar Introduce-metoden för att skriva ut information om den andra personen.
         person2.Introduce();
 
         // Väntar på att användaren trycker på en tangent innan programmet avslutas.
