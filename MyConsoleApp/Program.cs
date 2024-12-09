@@ -4,7 +4,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Skapa en adress
+        // Skapa en adress. Första Address = typen av objekt du skapar
+        // address1 är en variabel som innehåller en instans av klassen Address
+        // Andra new Address är konstruktorn av Person-klassen för att skapa ett nytt objekt 
         Address address1 = new Address("Gatan 5", "Stockholm", "111 22", "Sverige");
 
         // Skapa en person och koppla till adressen
